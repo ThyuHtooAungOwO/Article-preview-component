@@ -1,10 +1,10 @@
-/* Basic Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Define color variables from style-guide */
 :root {
   --very-dark-grayish-blue: hsl(217, 19%, 35%);
   --desaturated-dark-blue: hsl(214, 17%, 51%);
@@ -13,12 +13,12 @@
   --white: hsl(0, 0%, 100%);
 }
 
+/* Set global font, background, and center content vertically */
 body {
   font-family: "Manrope", sans-serif;
   font-size: 0.8125rem;
   background-color: var(--light-grayish-blue);
   color: var(--desaturated-dark-blue);
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -28,6 +28,7 @@ body {
   gap: 1.5rem;
 }
 
+/* Style article card with white background and shadow */
 .article-preview-card {
   background-color: var(--white);
   border-radius: 0.625rem;
@@ -38,6 +39,7 @@ body {
   flex-direction: column;
 }
 
+/* Container for article image with rounded top */
 .article-image-container {
   width: 100%;
   height: 12.5rem;
@@ -47,6 +49,7 @@ body {
   transition: width 0.3s ease-in-out, border-radius 0.3s ease-in-out;
 }
 
+/* Ensure image fits and covers container */
 .article-image {
   width: 100%;
   height: 100%;
@@ -54,6 +57,7 @@ body {
   display: block;
 }
 
+/* Article content with padding and spacing */
 .article-content-container {
   padding: 2rem 2rem 0;
   display: flex;
@@ -61,6 +65,7 @@ body {
   gap: 0.75rem;
 }
 
+/* Bold article title with dark color */
 .article-title {
   font-family: "Manrope", sans-serif;
   font-weight: 700;
@@ -69,11 +74,13 @@ body {
   color: var(--very-dark-grayish-blue);
 }
 
+/* Article description with standard weight */
 .article-description {
   font-weight: 500;
   line-height: 1.5;
 }
 
+/* Footer with author info and share button */
 .article-footer {
   display: flex;
   align-items: center;
@@ -83,6 +90,7 @@ body {
   z-index: 10;
 }
 
+/* Author info with avatar and details */
 .author-info {
   display: flex;
   align-items: center;
@@ -90,37 +98,35 @@ body {
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.share-popup:not(.hidden) ~ .article-footer .author-info {
-  opacity: 0;
-  transform: translateY(1rem);
-  pointer-events: none;
-}
-
+/* Circular author avatar */
 .author-avatar {
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
   object-fit: cover;
-  background-color: aliceblue;
 }
 
+/* Stack author name and date */
 .author-details {
   display: flex;
   flex-direction: column;
 }
 
+/* Bold author name */
 .author-name {
   font-weight: 700;
   color: var(--very-dark-grayish-blue);
   font-size: 0.8125rem;
 }
 
+/* Lighter article date */
 .article-date {
   font-weight: 500;
   font-size: 0.8125rem;
   color: var(--grayish-blue);
 }
 
+/* Share button styling */
 .share-button {
   width: 2.5rem;
   height: 2.5rem;
@@ -131,32 +137,34 @@ body {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  position: relative;
   z-index: 20;
   transition: background-color 0.2s ease;
 }
 
+/* Hover effect for share button */
 .share-button:hover {
   background-color: var(--desaturated-dark-blue);
 }
 
+/* Adjust button icon brightness */
 .share-button img {
   filter: brightness(0.7);
   transition: filter 0.2s ease;
 }
 
-.share-button:hover img {
-  filter: brightness(100) saturate(0);
-}
-
-.share-button.active {
-  background-color: var(--desaturated-dark-blue);
-}
-
+/* Brighten icon on hover */
+.share-button:hover img,
 .share-button.active img {
   filter: brightness(100);
 }
 
-/* share-popup */
+/* Active state for share button */
+.share-button.active {
+  background-color: var(--desaturated-dark-blue);
+}
+
+/* Share popup styling */
 .share-popup {
   background-color: var(--very-dark-grayish-blue);
   border-radius: 0 0 0.5rem 0.5rem;
@@ -165,7 +173,6 @@ body {
   align-items: center;
   justify-content: flex-start;
   gap: 1rem;
-
   position: absolute;
   bottom: 0;
   left: 0;
@@ -177,16 +184,26 @@ body {
   z-index: 10;
 }
 
+/* Hide author info when share is active */
+.article-footer.share-active .author-info {
+  opacity: 0;
+  transform: translateY(1rem);
+  pointer-events: none;
+}
+
+/* Show popup when active */
+.article-footer.share-active .share-popup {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Ensure hidden state for popup */
 .share-popup.hidden {
   opacity: 0;
   pointer-events: none;
 }
 
-.share-popup:not(.hidden) {
-  opacity: 1;
-  pointer-events: auto;
-}
-
+/* Style share text */
 .share-text {
   color: var(--grayish-blue);
   text-transform: uppercase;
@@ -195,29 +212,32 @@ body {
   font-weight: 500;
 }
 
+/* Arrange share icons */
 .share-icons {
   display: flex;
   gap: 1rem;
   align-items: center;
 }
 
+/* Style share icon images */
 .share-popup a img {
   width: 1.25rem;
   height: 1.25rem;
   transition: transform 0.2s ease-in-out;
 }
 
+/* Scale icons on hover */
 .share-popup a img:hover {
   transform: scale(1.1);
-  opacity: 0.8;
 }
 
+/* Hide popup triangle on mobile */
 .popup-triangle {
   display: none;
 }
 
 .attribution {
-  font-size: 0.6875rem;
+  font-size: 0.6875rem; /* 11px */
   text-align: center;
   color: var(--desaturated-dark-blue);
 }
@@ -232,12 +252,13 @@ body {
   text-decoration: underline;
 }
 
-/* Desktop Styles */
+/* Desktop styles (min-width: 768px) */
 @media (min-width: 48em) {
   body {
     padding: 2rem;
   }
 
+  /* Grid layout for article card */
   .article-preview-card {
     display: grid;
     grid-template-columns: 17.8125rem 1fr;
@@ -245,10 +266,10 @@ body {
     grid-template-areas:
       "image content"
       "image footer";
-
     max-width: 45.625rem;
   }
 
+  /* Adjust image container for grid */
   .article-image-container {
     grid-area: image;
     width: auto;
@@ -259,6 +280,7 @@ body {
     border-bottom-right-radius: 0;
   }
 
+  /* Adjust content padding and spacing */
   .article-content-container {
     grid-area: content;
     padding: 2rem 2.5rem 0;
@@ -269,43 +291,48 @@ body {
     gap: 0.8rem;
   }
 
+  /* Larger title for desktop */
   .article-title {
     font-size: 1.25rem;
     line-height: 1.4;
   }
 
+  /* Footer styling for desktop */
   .article-footer {
     grid-area: footer;
     padding: 1.25rem 2.5rem;
-    /* position: relative; inherited from mobile */
+    background-color: transparent;
+    border-radius: 0;
+    align-self: end;
   }
 
+  /* Position share popup above button */
   .share-popup {
     position: absolute;
     bottom: calc(100% + 1rem);
-    right: -3.3rem;
+    right: -3.3rem; /* My Custom offset TwT */
     left: auto;
-
     width: 14rem;
     padding: 0.8rem 1rem;
     height: auto;
     border-radius: 0.5rem;
-
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease-in-out;
     top: auto;
     z-index: 10;
     box-shadow: 0 0.5rem 1.5rem hsla(217, 19%, 35%, 0.2);
-
     justify-content: center;
+    gap: 0.5rem;
   }
 
+  /* Show popup when not hidden */
   .share-popup:not(.hidden) {
     opacity: 1;
     pointer-events: auto;
   }
 
+  /* Show triangle below popup */
   .popup-triangle {
     display: block;
     width: 0;
@@ -316,6 +343,7 @@ body {
     position: absolute;
     bottom: -0.7rem;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%); /* Center triangle */
+    right: auto;
   }
 }
