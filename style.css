@@ -301,9 +301,6 @@ body {
   .article-footer {
     grid-area: footer;
     padding: 1.25rem 2.5rem;
-    background-color: transparent;
-    border-radius: 0;
-    align-self: end;
   }
 
   /* Position share popup above button */
