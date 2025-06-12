@@ -142,8 +142,9 @@ body {
   transition: background-color 0.2s ease;
 }
 
-/* Hover effect for share button */
-.share-button:hover {
+/*  Active state & Hover effect for share button */
+.share-button:hover,
+.share-button.active {
   background-color: var(--desaturated-dark-blue);
 }
 
@@ -157,11 +158,6 @@ body {
 .share-button:hover img,
 .share-button.active img {
   filter: brightness(100);
-}
-
-/* Active state for share button */
-.share-button.active {
-  background-color: var(--desaturated-dark-blue);
 }
 
 /* Share popup styling */
